@@ -1,0 +1,4 @@
+ -main TestMain
+ -neko bin/neko/test.n
+ -cp ..
+ -cp .

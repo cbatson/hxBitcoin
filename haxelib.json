@@ -1,0 +1,11 @@
+{
+	"name": "hxBitcoin",
+	"url": "http://hxbitcoin.com",
+	"license": "MIT",
+	"tags": ["cross", "crypto", "utility", "ios", "windows", "mac", "osx", "cpp", "neko", "flash"],
+	"description": "Bitcoin, cryptocurrency and cryptography library",
+	"version": "0.1.0",
+	"releasenote": "See http://hxbitcoin.com",
+	"contributors": ["ChuckBatson"],
+	"dependencies": {}
+}

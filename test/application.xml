@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	<!-- NMML reference: https://gist.github.com/1763850 -->
+	
+	<!-- metadata, make sure 'package' is at least 3 segments (ie. com.mycompany.myproject) -->
+	<meta title="hxBitcoin Test" version="1.0.0" company="FundoWare" />
+	<meta package="com.fundoware.engine.hxBitcoinTest" />
+	
+	<!-- output -->
+	<app main="TestMain" file="test" path="bin" />
+	
+	<window background="#ffffff" fps="60" />
+	<window width="320" height="480" unless="mobile" />
+	<window vsync="true" antialiasing="0" if="mobile" />
+	
+	<!-- classpath, haxe libs -->
+	<haxelib name="openfl" />
+	<source path=".." />
+	<source path="." />
+
+	<section if="ios">
+		<launchImage path="icons/ios/Default-568h@2x.png" width="640" height="1136" />
+		<launchImage path="icons/ios/Default-Landscape.png" width="1024" height="768" />
+		<launchImage path="icons/ios/Default-Landscape@2x.png" width="2048" height="1536" />
+		<launchImage path="icons/ios/Default-Portrait.png" width="768" height="1024" />
+		<launchImage path="icons/ios/Default-Portrait@2x.png" width="1536" height="2048" />
+		<launchImage path="icons/ios/Default.png" width="320" height="480" />
+		<launchImage path="icons/ios/Default@2x.png" width="640" height="960" />
+	</section>
+</project>
