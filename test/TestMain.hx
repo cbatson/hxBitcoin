@@ -27,6 +27,7 @@ THE SOFTWARE.
 
 package;
 
+import com.fundoware.engine.test.FunRuntimeTests;
 import com.fundoware.engine.test.FunTestRunner;
 
 class TestMain
@@ -34,6 +35,7 @@ class TestMain
 	public static function main() : Void
 	{
 		var tr = new FunTestRunner(false);
+		tr.add(new com.fundoware.engine.test.FunRuntimeTests_Test());
 		com.fundoware.engine.bigint.FunBigInt_Tests.AddTests(tr);
 		com.fundoware.engine.bitcoin.FunBitcoin_Tests.AddTests(tr);
 		com.fundoware.engine.core.FunCore_Tests.AddTests(tr);
@@ -43,5 +45,8 @@ class TestMain
 		com.fundoware.engine.random.FunRandom_Tests.AddTests(tr);
 		com.fundoware.engine.unicode.FunUnicode_Tests.AddTests(tr);
 		var success = tr.run();
+		#if sys
+			Sys.exit(success ? 0 : 1);
+		#end
 	}
 }

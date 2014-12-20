@@ -1,0 +1,4 @@
+ -main TestMain
+ -cpp bin/linux
+ -cp ..
+ -cp .

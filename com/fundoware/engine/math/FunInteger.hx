@@ -152,7 +152,7 @@ class FunInteger
 	**/
 	public static inline function u32gtu32(a : Int, b : Int) : Bool
 	{
-		return (a + -2147483648) > (b + -2147483648);		// unsigned comparison, see "Hacker's Delight" p. 25.
+		return (a ^ -2147483648) > (b ^ -2147483648);		// unsigned comparison, see "Hacker's Delight" p. 25.
 	}
 
 
@@ -164,7 +164,7 @@ class FunInteger
 	**/
 	public static inline function u32geu32(a : Int, b : Int) : Bool
 	{
-		return (a + -2147483648) >= (b + -2147483648);		// unsigned comparison, see "Hacker's Delight" p. 25.
+		return (a ^ -2147483648) >= (b ^ -2147483648);		// unsigned comparison, see "Hacker's Delight" p. 25.
 	}
 
 

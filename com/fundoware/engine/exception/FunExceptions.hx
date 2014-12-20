@@ -39,6 +39,7 @@ class FunExceptions
 	public static inline var FUN_DIVISION_BY_ZERO = "division by zero";
 	public static inline var FUN_INVALID_OPERATION = "invalid operation";
 	public static inline var FUN_CHECKSUM_MISMATCH = "checksum mismatch";
+	public static inline var FUN_RUNTIME_TEST_FAILED = "run-time test failed";
 
 	public static inline function rethrow(e : Dynamic) : Dynamic
 	{

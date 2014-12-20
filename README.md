@@ -1,4 +1,4 @@
-# [hxBitcoin - the Haxe Bitcoin, cryptocurrency and cryptography library](http://hxbitcoin.com)
+# [hxBitcoin - the Bitcoin, cryptocurrency and cryptography library for Haxe](http://hxbitcoin.com)
 
 	
 ## Features
@@ -20,7 +20,7 @@
  * Modular arithmetic (Fp)
  * Arbitrary-size (big) integer
  * Unicode 7.0
- * Extensive test suite
+ * Extensive test suite of **over 22,000** individual tests and vectors
  * Pure Haxe implementation
  * No additional/external dependencies
 
@@ -30,6 +30,7 @@
  * iOS (C++)
  * Windows (C++)
  * Mac OSX (C++)
+ * Linux (C++)
  * AS3/Flash
  * Neko
  * [Request more...](mailto:fundoware+hxbitcoin@gmail.com)
@@ -103,7 +104,7 @@ hxBitcoin is offered under the MIT license. See
 
 ## Change Log
 
-See [CHANGES.txt](CHANGES.txt).
+See [CHANGES.md](CHANGES.md).
 
 
 ## Security Notes
@@ -154,11 +155,10 @@ issue to the contact below.
 
 ## Why Haxe?
 
- * Haxe supports many target languages and platforms.
- * Writing the library once in Haxe makes it available in C++, Java,
-   JavaScript, PHP, ActionScript and more -- extending reach to
-   desktop, mobile, web, and server platforms.
- * Haxe has a vibrant and passionate community behind it.
+ * Target C++, Java, JS, PHP, AS3 and more—with a single code base
+ * Extends reach to desktop, mobile, web, and server platforms
+ * Performant
+ * Vibrant and passionate community
 
 
 ## Contact

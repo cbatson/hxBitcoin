@@ -4,8 +4,8 @@
 	"license": "MIT",
 	"tags": ["cross", "crypto", "utility", "ios", "windows", "mac", "osx", "cpp", "neko", "flash"],
 	"description": "Bitcoin, cryptocurrency and cryptography library",
-	"version": "0.1.0",
-	"releasenote": "See http://hxbitcoin.com",
+	"version": "0.1.1",
+	"releasenote": "See https://github.com/cbatson/hxBitcoin/blob/master/CHANGES.md",
 	"contributors": ["ChuckBatson"],
 	"dependencies": {}
 }

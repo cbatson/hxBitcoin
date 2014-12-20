@@ -35,6 +35,7 @@ import com.fundoware.engine.crypto.hash.FunSHA2_256;
 import com.fundoware.engine.crypto.hmac.FunHMAC_SHA256;
 import com.fundoware.engine.crypto.pbe.FunPBKDF2_HMAC_SHA256;
 import com.fundoware.engine.crypto.scrypt.FunScrypt;
+import com.fundoware.engine.test.FunRuntimeTests;
 import com.fundoware.engine.unicode.FunUnicodeNormalization;
 
 class FunBitcoinContext
@@ -149,6 +150,7 @@ class FunBitcoinContext
 
 	public function new(curve : FunIEllipticCurve = null, sha256 : FunSHA2_256 = null, ripemd160 : FunRIPEMD160 = null, base58 : FunBase58Check = null) : Void
 	{
+		FunRuntimeTests.run();
 		m_curve = curve;
 		m_sha256 = sha256;
 		m_ripemd160 = ripemd160;

@@ -1,5 +1,0 @@
-hxBitcoin
-http://hxbitcoin.com
-
-Version 0.1.0, 2014.12.16:
-	Initial release
