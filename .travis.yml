@@ -12,5 +12,5 @@ install:
  - travis_retry haxelib install hxcpp
 
 script:
- - test/test.sh linux
- - test/test.sh neko
+ - bash test/test.sh linux
+ - bash test/test.sh neko
