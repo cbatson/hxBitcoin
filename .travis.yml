@@ -11,6 +11,10 @@ install:
  - haxelib setup ~/haxelib
  - travis_retry haxelib install hxcpp
 
+env:
+  matrix:
+    - FUN_TARGET=linux
+    - FUN_TARGET=neko
+	
 script:
- - bash test/test.sh linux
- - bash test/test.sh neko
+ - bash test/test.sh $FUN_TARGET
