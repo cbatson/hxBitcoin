@@ -3,9 +3,10 @@ set -e
 _THIS="$( cd "$( dirname "$0" )" && pwd )"
 cd "${_THIS}"
 _TARGET=$1
-if [ -z "$_TARGET" ]; then
+if [ -z "${_TARGET}" ]; then
 	_TARGET=osx
 fi
+mkdir -p "bin/${_TARGET}"
 case $_TARGET in
 	ios)
 		haxelib run lime build ios

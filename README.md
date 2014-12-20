@@ -1,6 +1,8 @@
 # [hxBitcoin - the Bitcoin, cryptocurrency and cryptography library for Haxe](http://hxbitcoin.com)
 
-	
+[![TravisCI Build Status](https://travis-ci.org/cbatson/hxBitcoin.svg?branch=master)](https://travis-ci.org/cbatson/hxBitcoin)
+
+
 ## Features
 
 ### Bitcoin
