@@ -14,7 +14,7 @@ install:
 env:
   matrix:
     - FUN_TARGET=linux
-    - FUN_TARGET=neko
+#    - FUN_TARGET=neko
 
 script:
  - bash test/test.sh $FUN_TARGET
