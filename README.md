@@ -141,7 +141,6 @@ issue to the contact below.
 
 ## To Do
 
- * Run test suite from Travis CI on Github
  * Documentation
  * HD wallets / BIP0032 & BIP0044
  * ECDSA
@@ -157,7 +156,7 @@ issue to the contact below.
 
 ## Why Haxe?
 
- * Target C++, Java, JS, PHP, AS3 and more—with a single code base
+ * Target C++, Java, JS, PHP, AS3 and more--with a single code base
  * Extends reach to desktop, mobile, web, and server platforms
  * Performant
  * Vibrant and passionate community
