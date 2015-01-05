@@ -2,12 +2,12 @@ language: cpp
 
 env:
   matrix:
-    - FUN_TARGET=linux FUN_DEVHAXE=false
-    - FUN_TARGET=linux FUN_DEVHAXE=true
-#    - FUN_TARGET=neko
+    - FUN_DEVHAXE=false
+    - FUN_DEVHAXE=true
 
 install:
  - if [ -z "$TRAVIS_OS_NAME" ]; then export TRAVIS_OS_NAME=linux; fi; # for forks that do not have multi-os enabled
+ - if [ -z "$FUN_TARGET" ]; then export FUN_TARGET=$TRAVIS_OS_NAME; fi;
  - bash test/setup.sh $TRAVIS_OS_NAME $FUN_TARGET $FUN_DEVHAXE travis_retry
 
 script:

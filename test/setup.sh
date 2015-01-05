@@ -26,7 +26,6 @@ case $HOST in
 		if $DEVHAXE; then
 			$RETRY brew install ocaml camlp4
 			$RETRY brew install neko --HEAD
-		else
 		fi
 		;;
 	*)
