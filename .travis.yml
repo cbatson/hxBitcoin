@@ -2,13 +2,34 @@ language: cpp
 
 env:
   matrix:
-    - FUN_DEVHAXE=false
-    - FUN_DEVHAXE=true
+    - FLAVOR=stable
+    - FLAVOR=dev
 
 install:
  - if [ -z "$TRAVIS_OS_NAME" ]; then export TRAVIS_OS_NAME=linux; fi; # for forks that do not have multi-os enabled
- - if [ -z "$FUN_TARGET" ]; then export FUN_TARGET=$TRAVIS_OS_NAME; fi;
- - bash test/setup.sh $TRAVIS_OS_NAME $FUN_TARGET $FUN_DEVHAXE travis_retry
+ - if [ -z "$TARGET" ]; then export TARGET=$TRAVIS_OS_NAME; fi;
+# linux-dev : install, neko
+ - if [ "$TRAVIS_OS_NAME" = "linux" ] && [ "$FLAVOR" = "dev" ]; then travis_retry sudo apt-get install ocaml zlib1g-dev libgc-dev gcc-multilib g++-multilib -y; fi;
+ - if [ "$TRAVIS_OS_NAME" = "linux" ] && [ "$FLAVOR" = "dev" ]; then travis_retry git clone https://github.com/HaxeFoundation/neko.git ~/neko; fi;
+ - if [ "$TRAVIS_OS_NAME" = "linux" ] && [ "$FLAVOR" = "dev" ]; then ( cd ~/neko && make os=$HOST && sudo make install ); fi;
+# *-dev : build haxe
+ - if [ "$FLAVOR" = "dev" ]; then travis_retry git clone --recursive https://github.com/HaxeFoundation/haxe.git ~/haxe; fi;
+ - if [ "$FLAVOR" = "dev" ]; then ( cd ~/haxe && make && make tools && sudo make install ); fi;
+# linux-stable : install, haxe, neko
+ - if [ "$TRAVIS_OS_NAME" = "linux" ] && [ "$FLAVOR" = "stable" ]; then travis_retry sudo add-apt-repository ppa:eyecreate/haxe -y; fi;
+ - if [ "$TRAVIS_OS_NAME" = "linux" ] && [ "$FLAVOR" = "stable" ]; then travis_retry sudo apt-get update; fi;
+ - if [ "$TRAVIS_OS_NAME" = "linux" ] && [ "$FLAVOR" = "stable" ]; then travis_retry sudo apt-get install haxe -y --force-yes; fi;
+ - if [ "$TRAVIS_OS_NAME" = "linux" ] && [ "$FLAVOR" = "stable" ]; then travis_retry sudo apt-get install gcc-multilib g++-multilib -y; fi;
+# *-* : haxelib
+ - mkdir ~/haxelib
+ - haxelib setup ~/haxelib
+# *-dev : build hxcpp
+ - if [ "$FLAVOR" = "dev" ]; then travis_retry git clone --recursive https://github.com/HaxeFoundation/hxcpp.git ~/hxcpp; fi;
+ - if [ "$FLAVOR" = "dev" ]; then ( cd ~/hxcpp/tools/run && haxe compile.hxml ); fi;
+ - if [ "$FLAVOR" = "dev" ]; then ( cd ~/hxcpp/tools/hxcpp && haxe compile.hxml ); fi;
+ - if [ "$FLAVOR" = "dev" ]; then ( cd ~/hxcpp/project && neko build.n ); fi;
+# *-stable : install hxcpp
+ - if [ "$FLAVOR" = "stable" ]; then travis_retry haxelib install hxcpp; fi;
 
 script:
- - bash test/test.sh $FUN_TARGET
+ - bash test/test.sh $TARGET
