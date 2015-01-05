@@ -1,20 +1,14 @@
 language: cpp
 
-before_install:
- - travis_retry sudo add-apt-repository ppa:eyecreate/haxe -y
- - travis_retry sudo apt-get update
- 
-install:
- - travis_retry sudo apt-get install haxe -y --force-yes
- - travis_retry sudo apt-get install gcc-multilib g++-multilib -y
- - mkdir ~/haxelib
- - haxelib setup ~/haxelib
- - travis_retry haxelib install hxcpp
-
 env:
   matrix:
-    - FUN_TARGET=linux
+    - FUN_TARGET=linux FUN_DEVHAXE=false
+    - FUN_TARGET=linux FUN_DEVHAXE=true
 #    - FUN_TARGET=neko
+
+install:
+ - if [ -z "$TRAVIS_OS_NAME" ]; then export TRAVIS_OS_NAME=linux; fi; # for forks that do not have multi-os enabled
+ - bash test/setup.sh $TRAVIS_OS_NAME $FUN_TARGET $FUN_DEVHAXE travis_retry
 
 script:
  - bash test/test.sh $FUN_TARGET
