@@ -32,7 +32,7 @@ install:
  - if [ "$TRAVIS_OS_NAME" = "linux" ] && [ "$FLAVOR" = "stable" ]; then travis_retry sudo apt-get install haxe -y --force-yes; fi;
  - if [ "$TRAVIS_OS_NAME" = "linux" ] && [ "$FLAVOR" = "stable" ]; then travis_retry sudo apt-get install gcc-multilib g++-multilib -y; fi;
 # osx-stable : install, haxe, neko
- - if [ "$TRAVIS_OS_NAME" = "osx" ] && [ "$FLAVOR" = "stable" ]; then travis_retry brew install haxe; fi;
+ - if [ "$TRAVIS_OS_NAME" = "osx" ] && [ "$FLAVOR" = "stable" ]; then travis_retry brew install neko haxe; fi;
 # *-* : haxelib
  - mkdir ~/haxelib
  - haxelib setup ~/haxelib
