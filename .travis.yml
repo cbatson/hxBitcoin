@@ -15,14 +15,14 @@ install:
 # linux-* : updates
  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then travis_retry sudo apt-get update; fi;
 # osx-* : updates
- - if [ "TRAVIS_OS_NAME" = "osx" ]; then travis_retry brew update; fi
+ - if [ "$TRAVIS_OS_NAME" = "osx" ]; then travis_retry brew update; fi
 # linux-dev : install, neko
  - if [ "$TRAVIS_OS_NAME" = "linux" ] && [ "$FLAVOR" = "dev" ]; then travis_retry sudo apt-get install ocaml zlib1g-dev libgc-dev gcc-multilib g++-multilib -y; fi;
  - if [ "$TRAVIS_OS_NAME" = "linux" ] && [ "$FLAVOR" = "dev" ]; then travis_retry git clone https://github.com/HaxeFoundation/neko.git ~/neko; fi;
  - if [ "$TRAVIS_OS_NAME" = "linux" ] && [ "$FLAVOR" = "dev" ]; then ( cd ~/neko && make os=$HOST && sudo make install ); fi;
 # osx-dev
- - if [ "TRAVIS_OS_NAME" = "osx" ] && [ "$FLAVOR" = "dev" ]; then travis_retry travis_retry brew install ocaml camlp4; fi
- - if [ "TRAVIS_OS_NAME" = "osx" ] && [ "$FLAVOR" = "dev" ]; then travis_retry brew install neko --HEAD; fi
+ - if [ "$TRAVIS_OS_NAME" = "osx" ] && [ "$FLAVOR" = "dev" ]; then travis_retry brew install ocaml camlp4; fi
+ - if [ "$TRAVIS_OS_NAME" = "osx" ] && [ "$FLAVOR" = "dev" ]; then travis_retry brew install neko --HEAD; fi
 # *-dev : build haxe
  - if [ "$FLAVOR" = "dev" ]; then travis_retry git clone --recursive https://github.com/HaxeFoundation/haxe.git ~/haxe; fi;
  - if [ "$FLAVOR" = "dev" ]; then ( cd ~/haxe && make && make tools && sudo make install ); fi;
@@ -32,7 +32,7 @@ install:
  - if [ "$TRAVIS_OS_NAME" = "linux" ] && [ "$FLAVOR" = "stable" ]; then travis_retry sudo apt-get install haxe -y --force-yes; fi;
  - if [ "$TRAVIS_OS_NAME" = "linux" ] && [ "$FLAVOR" = "stable" ]; then travis_retry sudo apt-get install gcc-multilib g++-multilib -y; fi;
 # osx-stable : install, haxe, neko
- - if [ "$TRAVIS_OS_NAME" = "osx" ] && [ "$FLAVOR" = "stable" ]; then travis_retry sudo brew install haxe; fi;
+ - if [ "$TRAVIS_OS_NAME" = "osx" ] && [ "$FLAVOR" = "stable" ]; then travis_retry brew install haxe; fi;
 # *-* : haxelib
  - mkdir ~/haxelib
  - haxelib setup ~/haxelib
