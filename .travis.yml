@@ -24,10 +24,11 @@ install:
  - mkdir ~/haxelib
  - haxelib setup ~/haxelib
 # *-dev : build hxcpp
+ - if [ "$FLAVOR" = "dev" ]; then haxelib dev hxcpp ~/hxcpp; fi;
  - if [ "$FLAVOR" = "dev" ]; then travis_retry git clone --recursive https://github.com/HaxeFoundation/hxcpp.git ~/hxcpp; fi;
  - if [ "$FLAVOR" = "dev" ]; then ( cd ~/hxcpp/tools/run && haxe compile.hxml ); fi;
  - if [ "$FLAVOR" = "dev" ]; then ( cd ~/hxcpp/tools/hxcpp && haxe compile.hxml ); fi;
- - if [ "$FLAVOR" = "dev" ]; then ( cd ~/hxcpp/project && neko build.n ); fi;
+ - if [ "$FLAVOR" = "dev" ]; then ( cd ~/hxcpp/project && neko build.n default ); fi;
 # *-stable : install hxcpp
  - if [ "$FLAVOR" = "stable" ]; then travis_retry haxelib install hxcpp; fi;
 
